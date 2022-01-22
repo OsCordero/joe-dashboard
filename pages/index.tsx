@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import Hero from "../components/styled/Hero";
-import Heading from "../components/styled/Heading";
+import Hero from "../src/components/styled/Hero";
+import Heading from "../src/components/styled/Heading";
 
 const Home: NextPage = () => {
   return (
