@@ -8,7 +8,13 @@ import {
   useNativeBalance,
   useTokenPrice,
 } from "react-moralis";
-import { Link, PrimaryButton } from "../src/components/commons/lib";
+import {
+  StyledLink,
+  PrimaryButton,
+  AddressButton,
+  AvaxLogo,
+  AvalancheButton,
+} from "../src/components/commons/lib";
 import { useEffect } from "react";
 
 export default function Contact() {
@@ -52,8 +58,20 @@ export default function Contact() {
         )}
         <Grid />
 
-        <Link>Hello</Link>
-        <PrimaryButton>Connect to a wallet</PrimaryButton>
+        <StyledLink>Hello</StyledLink>
+        {/* <PrimaryButton>Connect to a wallet</PrimaryButton> */}
+
+        <AvalancheButton>Avalanche</AvalancheButton>
+        {isAuthenticated ? (
+          <AddressButton>
+            <AvaxLogo src="/avalanche-avax-logo.png" />
+            <span>{account}</span>
+          </AddressButton>
+        ) : (
+          <PrimaryButton onClick={handleLogin}>
+            Connect to a wallet
+          </PrimaryButton>
+        )}
       </div>
     </>
   );
