@@ -5,10 +5,14 @@ export const StyledLink = styled.a`
   font-family: Poppins;
   font-size: 18px;
   line-height: 27px;
-  color: ${({ color }) => color || "#151531"};
+  color: ${({ color, theme }) => color || theme.colors.text};
   cursor: pointer;
-  // opacity: 0.7;
   padding-right: 2rem;
+  transition: color 0.3s;
+
+  &:hover {
+    color: #919191;
+  }
 
   @media (max-width: 1200px) {
     padding-right: 1rem;

@@ -10,6 +10,7 @@ const theme = {
   colors: {
     bg: "#F2F9FF",
     primary: "#7408f8",
+    text: "#151531",
   },
 };
 

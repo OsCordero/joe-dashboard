@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useMoralis, useMoralisWeb3Api } from "react-moralis";
+import { Chain } from "../types";
 
 interface Params {
   chain: Chain;

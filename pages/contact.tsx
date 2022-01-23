@@ -28,8 +28,8 @@ export default function Contact() {
 
   const { authenticate, logout, isAuthenticated, account } = useMoralis();
   const dataToken = useTokenPrice({
-    address: "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7",
-    chain: "avalanche",
+    address: "0x03f458cFD32602e7E65FeFc76F98eab514971f0a",
+    chain: "polygon",
   });
   const Web3Api = useMoralisWeb3Api();
 
