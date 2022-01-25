@@ -49,9 +49,15 @@ export const PrimaryButton = styled.button`
   transition: all 0.3s ease-in-out;
   opacity: 1;
   font-weight: 500;
+  height: 60px;
 
   &:hover {
     opacity: 0.7;
+  }
+
+  @media (max-width: 1100px) {
+    padding-left: 5px;
+    padding-right: 5px;
   }
 `;
 
@@ -67,20 +73,32 @@ export const AddressButton = styled.button`
   font-size: 18px;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
-  opacity: 1;
   font-weight: 500;
+  height: 60px;
+  max-width: 228px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: -1px;
 
   &:hover {
     opacity: 0.7;
   }
+
+  @media (max-width: 1100px) {
+    padding-left: 5px;
+    padding-right: 5px;
+    max-width: 98px;
+  }
 `;
 
 export const AvaxLogo = styled.img`
-  margin-top: 4px;
+  // margin-top: 4px;
   height: 27px;
   width: 27px;
   border-radius: 50%;
   margin-right: 10px;
+  float: left;
 `;
 
 export const AvalancheButton = styled.button`
@@ -97,15 +115,15 @@ export const AvalancheButton = styled.button`
   transition: all 0.3s ease-in-out;
   opacity: 1;
   font-weight: 500;
+  height: 60px;
 
   &:hover {
     opacity: 0.7;
   }
-`;
 
-export const PriceTag = styled.p`
-  color: #151531;
-  font-family: Roboto;
-  font-size: 30px;
-  font-weight: bold;
+  @media (max-width: 1100px) {
+    padding-left: 5px;
+    padding-right: 5px;
+    max-width: 98px;
+  }
 `;

@@ -12,6 +12,9 @@ const theme = {
     primary: "#7408f8",
     text: "#151531",
   },
+  title: {
+    margin: "36px",
+  },
 };
 
 function MyApp({ Component, pageProps }: AppProps) {

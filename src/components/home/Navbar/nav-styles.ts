@@ -15,15 +15,28 @@ export const NavLogo = styled.img`
   padding-left: 75px;
   padding-top: 14px;
   cursor: pointer;
+
+  @media (max-width: 1100px) {
+    padding-left: 10px;
+  }
 `;
 
 export const IconWrapper = styled.span`
   margin-right: 53px;
+
+  @media (max-width: 1100px) {
+    margin-right: 10px;
+  }
 `;
 
 export const ButtonWrapper = styled.span`
-  margin-left: 22px;
-  margin-right: 60px;
+  padding-left: 22px;
+  padding-right: 60px;
+
+  @media (max-width: 1100px) {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 `;
 
 // export const NavTag = styled.a`

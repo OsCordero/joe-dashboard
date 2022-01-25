@@ -8,7 +8,7 @@ import {
   StyledBoldLink,
   AvaxLogo,
 } from "../../commons/lib";
-import { ButtonWrapper, IconWrapper, NavLogo, StyledNav } from "./NavStyles";
+import { ButtonWrapper, IconWrapper, NavLogo, StyledNav } from "./nav-styles";
 import { FaSistrix } from "react-icons/fa";
 import {
   useERC20Balances,
