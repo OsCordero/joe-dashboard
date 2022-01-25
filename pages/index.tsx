@@ -3,7 +3,6 @@ import Head from "next/head";
 // import Hero from "../src/components/styled/Hero";
 // import Heading from "../src/components/styled/Heading";
 import Cards from "../src/components/home/Cards/Cards";
-import Table from "../src/components/home/Table/Table";
 import {
   useERC20Balances,
   useMoralis,
@@ -30,7 +29,6 @@ const Home: NextPage = () => {
       </Head>
 
       <Cards />
-      <Table />
 
       {/* <Heading>HOME</Heading>
       <PriceTag>$1000</PriceTag> */}
