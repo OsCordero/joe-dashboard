@@ -11,15 +11,16 @@ a {
   text-decoration: none;
 }
 
-* {
-  box-sizing: border-box;
-} */
+
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
 */
 
+/* * {
+  box-sizing: border-box;
+} */
 html,
 body,
 div,
@@ -274,4 +275,6 @@ table {
 
 button {
   border: none;
+  cursor: pointer;
+  font-family: Poppins, sans-serif;
 }

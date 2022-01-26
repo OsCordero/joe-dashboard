@@ -64,16 +64,24 @@ export const PrimaryButton = styled.button`
 export const AddressButton = styled.button`
   background-color: #e5e5e5;
   border-radius: 65px;
-  color: #000000;
   padding: 16px 25px;
   font-size: 18px;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   height: 60px;
   max-width: 228px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+
+  .inner {
+    display: flex;
+    align-items: center;
+  }
+  .address {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 208px;
+  }
+
   &:hover {
     opacity: 0.7;
   }
@@ -96,19 +104,13 @@ export const AvaxLogo = styled.img`
 
 export const AvalancheButton = styled.button`
   background-color: transparent;
-  border: 2px solid #ea4142;
+  border: 2px solid ${({ theme }) => theme.colors.avalancheRed};
   border-radius: 65px;
-  color: #ea4142;
+  color: ${({ theme }) => theme.colors.avalancheRed};
   padding: 16px 25px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
   font-size: 18px;
-  cursor: pointer;
   transition: all 0.3s ease-in-out;
-  opacity: 1;
   font-weight: 500;
-  height: 60px;
 
   &:hover {
     opacity: 0.7;
@@ -118,5 +120,18 @@ export const AvalancheButton = styled.button`
     padding-left: 5px;
     padding-right: 5px;
     max-width: 98px;
+  }
+`;
+
+export const Container = styled.div`
+  max-width: 1400px;
+  padding: 20px;
+  margin: 0 auto;
+
+  @media (max-width: 1400px) {
+    max-width: 1200px;
+  }
+  @media (max-width: 968px) {
+    max-width: 600px;
   }
 `;
