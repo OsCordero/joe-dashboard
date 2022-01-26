@@ -1,4 +1,4 @@
-type Chain =
+export type Chain =
   | "eth"
   | "0x1"
   | "ropsten"

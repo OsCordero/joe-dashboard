@@ -8,7 +8,6 @@ import {
   useNativeBalance,
   useTokenPrice,
 } from "react-moralis";
-import { Link, PrimaryButton } from "../src/components/commons/lib";
 import { useEffect, useState } from "react";
 
 const scam = [
@@ -16,6 +15,13 @@ const scam = [
   "0x8d12a197cb00d4747a1fe03395095ce2a5cc6819",
   "0x9a642d6b3368ddc662CA244bAdf32cDA716005BC",
 ];
+import {
+  StyledLink,
+  PrimaryButton,
+  AddressButton,
+  AvaxLogo,
+  AvalancheButton,
+} from "../src/components/commons/lib";
 
 export default function Contact() {
   const {
@@ -94,6 +100,20 @@ export default function Contact() {
           <button onClick={handleLogin}>Login</button>
         )}
         <Grid />
+        <StyledLink>Hello</StyledLink>
+        {/* <PrimaryButton>Connect to a wallet</PrimaryButton> */}
+
+        <AvalancheButton>Avalanche</AvalancheButton>
+        {isAuthenticated ? (
+          <AddressButton>
+            <AvaxLogo src="/avalanche-avax-logo.png" />
+            <span>{account}</span>
+          </AddressButton>
+        ) : (
+          <PrimaryButton onClick={handleLogin}>
+            Connect to a wallet
+          </PrimaryButton>
+        )}
 
         {balances?.map((token: any) => {
           if (+token.balance === 0) {
@@ -120,7 +140,7 @@ export default function Contact() {
             </div>
           );
         })}
-        <Link>Hello {isLoading ? "loading" : ""}</Link>
+        <StyledLink>Hello {isLoading ? "loading" : ""}</StyledLink>
         <PrimaryButton>Connect to a wallet</PrimaryButton>
       </div>
     </>
