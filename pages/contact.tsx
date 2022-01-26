@@ -9,7 +9,13 @@ import {
   useTokenPrice,
 } from "react-moralis";
 import { Link, PrimaryButton } from "../src/components/commons/lib";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+
+const scam = [
+  "0xe4fb1bb8423417a460286b0ed44b64e104c5fae5",
+  "0x8d12a197cb00d4747a1fe03395095ce2a5cc6819",
+  "0x9a642d6b3368ddc662CA244bAdf32cDA716005BC",
+];
 
 export default function Contact() {
   const {
@@ -17,26 +23,63 @@ export default function Contact() {
     data: balance,
     nativeToken,
     error,
-    isLoading,
-  } = useNativeBalance({ chain: "avalanche" });
+  } = useNativeBalance({ chain: "0x89" });
+  const [balances, setBalances] = useState<any>([]);
+  const [historyValue, setHistoryValue] = useState<any>([]);
 
-  const { authenticate, logout, isAuthenticated, account } = useMoralis();
+  const {
+    authenticate,
+    logout,
+    isAuthenticated,
+    account,
+    Moralis,
+    isInitialized,
+  } = useMoralis();
   const dataToken = useTokenPrice({
-    address: "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7",
-    chain: "avalanche",
+    address: "0x4c28f48448720e9000907bc2611f73022fdce1fa",
+    chain: "0x89",
   });
   const Web3Api = useMoralisWeb3Api();
 
-  const data = useERC20Balances();
+  const { data, fetchERC20Balances, isFetching, isLoading } = useERC20Balances({
+    address: "0x03f458cFD32602e7E65FeFc76F98eab514971f0a",
+    chain: "0x89",
+  });
   const handleLogin = () => {
     authenticate();
   };
-  console.log(account);
-  console.log("dataToken", dataToken);
 
   const handleLogout = () => {
     logout();
   };
+
+  useEffect(() => {
+    console.log("HERE", account);
+    if (account) {
+      fetch(
+        `https://api.covalenthq.com/v1/137/address/0x0C7917000E7aE7d5b0E6E9f1CC65cA5CC2B5C2aA/balances_v2/?quote-currency=USD&format=JSON&nft=false&no-nft-fetch=false&key=ckey_3a85537ab9ad4012bfbc1fbf324`
+      )
+        .then((res) => res.json())
+        .then((data) => setBalances(data.data.items))
+        .catch((err) => console.log("ERRRRRRROR", err));
+    }
+  }, [isAuthenticated, isInitialized, account]);
+
+  useEffect(() => {
+    console.log("HERE", account);
+    if (account) {
+      fetch(
+        `https://api.covalenthq.com/v1/137/address/0x0C7917000E7aE7d5b0E6E9f1CC65cA5CC2B5C2aA/portfolio_v2/?key=ckey_3a85537ab9ad4012bfbc1fbf324`
+        // `https://api.covalenthq.com/v1/1/address/demo.eth/portfolio_v2/?key=ckey_docs`
+      )
+        .then((res) => res.json())
+        .then((data) => setHistoryValue(data.items))
+        .catch((err) => console.log("ERRRRRRROR", err));
+    }
+  }, [isAuthenticated, isInitialized, account]);
+
+  console.log("BALACNMCEs", balances);
+
   return (
     <>
       <Head>
@@ -52,7 +95,32 @@ export default function Contact() {
         )}
         <Grid />
 
-        <Link>Hello</Link>
+        {balances?.map((token: any) => {
+          if (+token.balance === 0) {
+            return;
+          }
+          return (
+            <div
+              key={token.contract_ticker_symbol}
+              style={{
+                display: "flex",
+                color: scam.includes(token.contract_address) ? "red" : "black",
+              }}
+            >
+              <h2 style={{ marginRight: 20 }}>
+                {token.contract_ticker_symbol}
+                {scam.includes(token.contract_address) && " This is scam"}
+              </h2>
+              <h2 style={{ marginRight: 20 }}> {token.symbol}</h2>
+              <h2 style={{ marginRight: 20 }}>
+                {Number(
+                  +token.balance / Math.pow(10, token.contract_decimals)
+                ).toFixed(2)}
+              </h2>
+            </div>
+          );
+        })}
+        <Link>Hello {isLoading ? "loading" : ""}</Link>
         <PrimaryButton>Connect to a wallet</PrimaryButton>
       </div>
     </>
