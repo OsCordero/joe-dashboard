@@ -10,6 +10,7 @@ import {
   useNativeBalance,
   useTokenPrice,
 } from "react-moralis";
+import Table from "../src/components/home/Table/Table";
 
 const Home: NextPage = () => {
   const { authenticate, logout, isAuthenticated, account } = useMoralis();
@@ -29,6 +30,7 @@ const Home: NextPage = () => {
       </Head>
 
       <Cards />
+      <Table />
 
       {/* <Heading>HOME</Heading>
       <PriceTag>$1000</PriceTag> */}

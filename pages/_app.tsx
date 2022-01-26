@@ -5,6 +5,7 @@ import { ThemeProvider } from "styled-components";
 
 import "../styles/globals.css";
 import Navbar from "../src/components/home/Navbar/Navbar";
+import Footer from "../src/components/home/Footer/Footer";
 
 const theme = {
   colors: {
@@ -29,6 +30,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         >
           <Navbar />
           <Component {...pageProps} />
+          <Footer />
         </MoralisProvider>
       </ThemeProvider>
     </>
