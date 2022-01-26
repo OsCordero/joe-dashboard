@@ -2,8 +2,6 @@ import styled from "styled-components";
 
 export const CardsContainer = styled.div`
   padding-top: 54px;
-  padding-left: 67.5px;
-  padding-right: 67.5px;
   background-color: #f2f9ff;
 `;
 
@@ -22,20 +20,20 @@ export const CardsWrapper = styled.div`
 `;
 
 export const Card = styled.div`
-  height: 125px;
-  width: 284px;
   border: 1px solid #dadada;
   border-radius: 10px;
   align-items: center;
   background-color: white;
+  display: grid;
+  padding: 18px 23px;
+  grid-template-columns: 0.3fr 1fr;
+  max-width: 284px;
 `;
 
 export const CardTitle = styled.p`
   font-size: 18px;
-  font-family: Poppins;
-  margin-top: 24px;
-  //   margin-right: 33px;
-  //   float: right;
+  font-family: Poppins, sans-serif;
+  color: #151531;
 `;
 
 export const PriceTag = styled.p`
@@ -43,7 +41,7 @@ export const PriceTag = styled.p`
   font-family: Roboto;
   font-size: 30px;
   font-weight: bold;
-  padding: 15px 119px 23px 78px;
+  grid-column: 2/3;
 `;
 
 export const CardImgWrapper = styled.div`
@@ -51,9 +49,5 @@ export const CardImgWrapper = styled.div`
   width: 40px;
   background-color: #ffdbdb;
   border-radius: 50%;
-  margin-top: 18px;
-  margin-left: 22px;
   margin-right: 16px;
-  float: left;
-  vertical-align: middle;
 `;

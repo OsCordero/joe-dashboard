@@ -12,6 +12,7 @@ const theme = {
     bg: "#F2F9FF",
     primary: "#7408f8",
     text: "#151531",
+    avalancheRed: "#ea4142",
   },
   title: {
     margin: "36px",

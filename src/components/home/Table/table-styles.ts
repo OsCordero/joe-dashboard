@@ -63,8 +63,6 @@ export const VerticalTableLine = styled.div`
 export const TableContainer = styled.div`
   padding-top: 40px;
   background-color: #f2f9ff;
-  padding-left: 75px;
-  padding-right: 60px;
   padding-bottom: 74px;
 `;
 
@@ -79,7 +77,6 @@ export const StyledTable = styled.table`
 
 export const StyledTHead = styled.th`
   padding-top: 26px;
-
   text-align: left;
 `;
 

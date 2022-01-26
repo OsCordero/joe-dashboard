@@ -1,4 +1,5 @@
 import React from "react";
+import { Container } from "../../commons/lib";
 import {
   Card,
   CardsContainer,
@@ -13,55 +14,57 @@ export default function Cards() {
   return (
     <>
       <CardsContainer>
-        <Title>Avalanche Assets</Title>
-        <CardsWrapper>
-          <Card>
-            <CardImgWrapper />
-            <CardTitle>Portfolio total value</CardTitle>
-            <PriceTag>$1000</PriceTag>
-          </Card>
-          <Card>
-            <CardImgWrapper />
-            <CardTitle>Portfolio total value</CardTitle>
-            <PriceTag>$1000</PriceTag>
-          </Card>
-          <Card>
-            <CardImgWrapper />
-            <CardTitle>Portfolio total value</CardTitle>
-            <PriceTag>$1000</PriceTag>
-          </Card>
-          <Card>
-            <CardImgWrapper />
-            <CardTitle>Portfolio total value</CardTitle>
-            <PriceTag>$1000</PriceTag>
-          </Card>
-        </CardsWrapper>
+        <Container>
+          <Title>Avalanche Assets</Title>
+          <CardsWrapper>
+            <Card>
+              <CardImgWrapper />
+              <CardTitle>Portfolio total value</CardTitle>
+              <PriceTag>$1000</PriceTag>
+            </Card>
+            <Card>
+              <CardImgWrapper />
+              <CardTitle>Portfolio total value</CardTitle>
+              <PriceTag>$1000</PriceTag>
+            </Card>
+            <Card>
+              <CardImgWrapper />
+              <CardTitle>Portfolio total value</CardTitle>
+              <PriceTag>$1000</PriceTag>
+            </Card>
+            <Card>
+              <CardImgWrapper />
+              <CardTitle>Portfolio total value</CardTitle>
+              <PriceTag>$1000</PriceTag>
+            </Card>
+          </CardsWrapper>
 
-        {/* ------------- */}
+          {/* ------------- */}
 
-        <Title>All Assets</Title>
-        <CardsWrapper>
-          <Card>
-            <CardImgWrapper />
-            <CardTitle>Portfolio total value</CardTitle>
-            <PriceTag>$1000</PriceTag>
-          </Card>
-          <Card>
-            <CardImgWrapper />
-            <CardTitle>Portfolio total value</CardTitle>
-            <PriceTag>$1000</PriceTag>
-          </Card>
-          <Card>
-            <CardImgWrapper />
-            <CardTitle>Portfolio total value</CardTitle>
-            <PriceTag>$1000</PriceTag>
-          </Card>
-          <Card>
-            <CardImgWrapper />
-            <CardTitle>Portfolio total value</CardTitle>
-            <PriceTag>$1000</PriceTag>
-          </Card>
-        </CardsWrapper>
+          <Title>All Assets</Title>
+          <CardsWrapper>
+            <Card>
+              <CardImgWrapper />
+              <CardTitle>Portfolio total value</CardTitle>
+              <PriceTag>$1000</PriceTag>
+            </Card>
+            <Card>
+              <CardImgWrapper />
+              <CardTitle>Portfolio total value</CardTitle>
+              <PriceTag>$1000</PriceTag>
+            </Card>
+            <Card>
+              <CardImgWrapper />
+              <CardTitle>Portfolio total value</CardTitle>
+              <PriceTag>$1000</PriceTag>
+            </Card>
+            <Card>
+              <CardImgWrapper />
+              <CardTitle>Portfolio total value</CardTitle>
+              <PriceTag>$1000</PriceTag>
+            </Card>
+          </CardsWrapper>
+        </Container>
       </CardsContainer>
     </>
   );
