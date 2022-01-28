@@ -7,6 +7,7 @@ import {
   useMoralisWeb3Api,
   useNativeBalance,
   useTokenPrice,
+  use,
 } from "react-moralis";
 import { useEffect, useState } from "react";
 
@@ -22,6 +23,8 @@ import {
   AvaxLogo,
   AvalancheButton,
 } from "../src/components/commons/lib";
+import { useQuery } from "@apollo/client";
+import { pairsQuery } from "../src/apollo-client/queries";
 
 export default function Contact() {
   const {
@@ -32,6 +35,10 @@ export default function Contact() {
   } = useNativeBalance({ chain: "0x89" });
   const [balances, setBalances] = useState<any>([]);
   const [historyValue, setHistoryValue] = useState<any>([]);
+
+  const { data: pairsData } = useQuery(pairsQuery);
+
+  console.log("PAIRS", pairsData);
 
   const {
     authenticate,
@@ -59,32 +66,39 @@ export default function Contact() {
     logout();
   };
 
-  useEffect(() => {
-    console.log("HERE", account);
-    if (account) {
-      fetch(
-        `https://api.covalenthq.com/v1/137/address/0x0C7917000E7aE7d5b0E6E9f1CC65cA5CC2B5C2aA/balances_v2/?quote-currency=USD&format=JSON&nft=false&no-nft-fetch=false&key=ckey_3a85537ab9ad4012bfbc1fbf324`
-      )
-        .then((res) => res.json())
-        .then((data) => setBalances(data.data.items))
-        .catch((err) => console.log("ERRRRRRROR", err));
-    }
-  }, [isAuthenticated, isInitialized, account]);
+  // useEffect(() => {
+  //   console.log("HERE", account);
+  //   if (account) {
+  //     fetch(
+  //       `https://api.covalenthq.com/v1/137/address/0x0C7917000E7aE7d5b0E6E9f1CC65cA5CC2B5C2aA/balances_v2/?quote-currency=USD&format=JSON&nft=false&no-nft-fetch=false&key=ckey_3a85537ab9ad4012bfbc1fbf324`
+  //     )
+  //       .then((res) => res.json())
+  //       .then((data) => setBalances(data.data.items))
+  //       .catch((err) => console.log("ERRRRRRROR", err));
+  //   }
+  // }, [isAuthenticated, isInitialized, account]);
+
+  // useEffect(() => {
+  //   console.log("HERE", account);
+  //   if (account) {
+  //     fetch(
+  //       `https://api.covalenthq.com/v1/137/address/0x0C7917000E7aE7d5b0E6E9f1CC65cA5CC2B5C2aA/portfolio_v2/?key=ckey_3a85537ab9ad4012bfbc1fbf324`
+  //       // `https://api.covalenthq.com/v1/1/address/demo.eth/portfolio_v2/?key=ckey_docs`
+  //     )
+  //       .then((res) => res.json())
+  //       .then((data) => setHistoryValue(data.items))
+  //       .catch((err) => console.log("ERRRRRRROR", err));
+  //   }
+  // }, [isAuthenticated, isInitialized, account]);
 
   useEffect(() => {
-    console.log("HERE", account);
-    if (account) {
-      fetch(
-        `https://api.covalenthq.com/v1/137/address/0x0C7917000E7aE7d5b0E6E9f1CC65cA5CC2B5C2aA/portfolio_v2/?key=ckey_3a85537ab9ad4012bfbc1fbf324`
-        // `https://api.covalenthq.com/v1/1/address/demo.eth/portfolio_v2/?key=ckey_docs`
-      )
-        .then((res) => res.json())
-        .then((data) => setHistoryValue(data.items))
-        .catch((err) => console.log("ERRRRRRROR", err));
-    }
-  }, [isAuthenticated, isInitialized, account]);
-
-  console.log("BALACNMCEs", balances);
+    Moralis.enableWeb3().then((web3) => {
+      console.log(
+        "WEB3",
+        web3.formatter.address("0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664")
+      );
+    });
+  }, []);
 
   return (
     <>

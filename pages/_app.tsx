@@ -6,6 +6,8 @@ import { ThemeProvider } from "styled-components";
 import "../styles/globals.css";
 import Navbar from "../src/components/home/Navbar/Navbar";
 import Footer from "../src/components/home/Footer/Footer";
+import { ApolloProvider } from "@apollo/client";
+import client from "../src/apollo-client";
 
 const theme = {
   colors: {
@@ -24,16 +26,18 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <>
-      <ThemeProvider theme={theme}>
-        <MoralisProvider
-          appId={process.env.NEXT_PUBLIC_APP_ID!}
-          serverUrl={process.env.NEXT_PUBLIC_SERVER_URL!}
-        >
-          <Navbar />
-          <Component {...pageProps} />
-          <Footer />
-        </MoralisProvider>
-      </ThemeProvider>
+      <ApolloProvider client={client}>
+        <ThemeProvider theme={theme}>
+          <MoralisProvider
+            appId={process.env.NEXT_PUBLIC_APP_ID!}
+            serverUrl={process.env.NEXT_PUBLIC_SERVER_URL!}
+          >
+            <Navbar />
+            <Component {...pageProps} />
+            <Footer />
+          </MoralisProvider>
+        </ThemeProvider>
+      </ApolloProvider>
     </>
   );
 }
