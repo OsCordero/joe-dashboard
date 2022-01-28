@@ -35,16 +35,25 @@ export const pairFieldsQuery = gql`
   ${pairTokenFieldsQuery}
 `;
 
-export const pairsQuery = gql`
-  query pairsQuery(
+export const userPairsQuery = gql`
+  query userPairsQuery(
     $first: Int! = 1000
-    $orderBy: String! = "trackedReserveAVAX"
+    $orderBy: String! = "liquidityTokenBalance"
     $orderDirection: String! = "desc"
+    $id: ID!
   ) {
-    pairs(first: $first, orderBy: $orderBy, orderDirection: $orderDirection) {
-      ...pairFields
-      oneDay @client
-      sevenDay @client
+    user(id: $id) {
+      liquidityPositions(
+        first: $first
+        orderBy: $orderBy
+        orderDirection: $orderDirection
+      ) {
+        pair {
+          ...pairFields
+          oneDay @client
+          sevenDay @client
+        }
+      }
     }
   }
   ${pairFieldsQuery}

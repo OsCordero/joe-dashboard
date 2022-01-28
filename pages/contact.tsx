@@ -24,7 +24,7 @@ import {
   AvalancheButton,
 } from "../src/components/commons/lib";
 import { useQuery } from "@apollo/client";
-import { pairsQuery } from "../src/apollo-client/queries";
+import { userPairsQuery } from "../src/apollo-client/queries";
 
 export default function Contact() {
   const {
@@ -36,7 +36,9 @@ export default function Contact() {
   const [balances, setBalances] = useState<any>([]);
   const [historyValue, setHistoryValue] = useState<any>([]);
 
-  const { data: pairsData } = useQuery(pairsQuery);
+  const { data: pairsData } = useQuery(userPairsQuery, {
+    variables: { id: "0x00000000005ef87f8ca7014309ece7260bbcdaeb" },
+  });
 
   console.log("PAIRS", pairsData);
 
@@ -154,6 +156,7 @@ export default function Contact() {
             </div>
           );
         })}
+
         <StyledLink>Hello {isLoading ? "loading" : ""}</StyledLink>
         <PrimaryButton>Connect to a wallet</PrimaryButton>
       </div>
