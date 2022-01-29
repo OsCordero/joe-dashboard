@@ -36,6 +36,7 @@ import { HiArrowLeft } from "react-icons/hi";
 import { IoIosArrowDown } from "react-icons/io";
 import { VerticalLine } from "../Table/table-styles";
 import { FaPlus } from "react-icons/fa";
+import Link from "next/link";
 
 export default function Pool() {
   return (
@@ -43,9 +44,11 @@ export default function Pool() {
       <PoolWrapper>
         <Container>
           <ArrowDiv>
-            <LeftArrow href="/">
-              <HiArrowLeft size="22px" />
-            </LeftArrow>
+            <Link passHref href="/">
+              <LeftArrow>
+                <HiArrowLeft size="22px" />
+              </LeftArrow>
+            </Link>
           </ArrowDiv>
           <PoolTitle>Manage Pool</PoolTitle>
           <DivsContainer>

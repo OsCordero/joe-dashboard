@@ -1,3 +1,5 @@
+import { AddressButton } from "./../../commons/lib";
+import Link from "next/link";
 import styled from "styled-components";
 
 export const PoolWrapper = styled.section`
@@ -81,7 +83,6 @@ export const MimLogo = styled.img`
   margin-bottom: -10px;
   margin-left: 15px;
   margin-right: 15px;
-  display: inline-block;
 `;
 
 export const TopTitle = styled.h2`
@@ -117,16 +118,12 @@ export const InfoAmount = styled.p`
 `;
 
 export const BottomDiv = styled.div`
-  width: 100%;
+  min-width: 0;
   border-radius: 10px;
   background-color: white;
   border: 1px solid #dadada;
-  padding: 40px 0px 38px 0px;
-
-  hr {
-    width: 100%;
-    color: #dadada;
-  }
+  padding: 40px 10% 38px 10%;
+  overflow: hidden;
 
   @media (max-width: 970px) {
     width: 100%;
@@ -135,24 +132,20 @@ export const BottomDiv = styled.div`
 `;
 
 export const LeftBottomText = styled.div`
-  padding-left: 10%;
-  padding-top: 35px;
-  padding-bottom: 35px;
   display: inline-block;
 `;
 
 export const RightBottomText = styled.div`
   float: right;
-  padding-right: 10%;
-  padding-top: 35px;
-  padding-bottom: 35px;
   text-align: right;
 `;
 
 export const HorizontalLine = styled.div`
-  width: 100%;
+  width: 150%;
+  transform: translateX(-20%);
   color: #dadada;
   border-bottom: 1px solid #c9c7c7;
+  margin: 35px 0px;
 `;
 export const RightDiv = styled.div`
   width: 100%;
@@ -251,10 +244,15 @@ export const InputBalance = styled.h2`
 
 export const InputWrapper = styled.div`
   width: 100%;
-  padding-top: 22px;
+  border: 1px solid #dadada;
+  border-radius: 60px;
+  margin-top: 22px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 2px 1fr;
+  align-items: center;
   .input {
-    width: 50%;
-    /* padding: 15px 24px; */
+    min-width: 0;
     padding-top: 15px;
     padding-bottom: 15px;
     padding-left: 6%;
@@ -262,30 +260,26 @@ export const InputWrapper = styled.div`
     font-size: 16px;
     font-family: Poppins, sans-serif;
     font-weight: 500;
-    border: 1px solid #dadada;
-    border-right-style: none;
-    border-bottom-left-radius: 60px;
-    border-top-left-radius: 60px;
-    display: inline-block;
-    vertical-align: middle;
+    border: none;
+    transition: 0.3s background-color;
+    &:focus {
+      outline: none;
+      background-color: #f5f5f5;
+    }
   }
 
   .input-right {
-    width: 27.5%;
-    /* padding: 16.25px 18px 16.25px 20px; */
+    justify-self: end;
+    min-width: 0;
+    width: 100%;
     padding-top: 17px;
     padding-bottom: 17px;
-    /* padding-right: 4.5%; */
-    padding-left: 5%;
-    font-size: 16px;
+    padding-right: 20px;
+    font-size: 15px;
     font-family: Poppins, sans-serif;
     font-weight: 500;
-    border: 1px solid #dadada;
-    border-left-style: none;
-    display: inline-block;
-    vertical-align: middle;
-    border-bottom-right-radius: 60px;
-    border-top-right-radius: 60px;
+    display: flex;
+    justify-content: flex-end;
     align-items: center;
 
     .arrow {
