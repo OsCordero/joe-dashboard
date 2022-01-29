@@ -7,11 +7,11 @@ export const TableTitle = styled.div`
   background-color: ${({ color, theme }) => color || theme.colors.bg};
 `;
 
-export const TabButton = styled.button`
+export const TabButton = styled.button<{ $active?: boolean }>`
   font-size: 18px;
   font-family: Poppins;
-  color: #313131;
-  opacity: 0.7;
+  color: ${({ $active, theme }) =>
+    $active ? theme.colors.linkRed : "#717171"};
   display: inline-block;
   padding-right: 33px;
   padding-left: 33px;
@@ -124,7 +124,6 @@ export const UsdcLogo = styled.img`
   height: 27px;
   width: 27px;
   border-radius: 50%;
-  margin-bottom: -7px;
   position: relative;
 `;
 

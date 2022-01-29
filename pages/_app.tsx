@@ -15,6 +15,7 @@ const theme = {
     primary: "#7408f8",
     text: "#151531",
     avalancheRed: "#ea4142",
+    linkRed: "#F2716A",
   },
   title: {
     margin: "36px",

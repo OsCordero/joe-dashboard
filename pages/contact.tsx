@@ -25,7 +25,6 @@ import {
 import { useQuery } from "@apollo/client";
 import { pairQ, userPairsQuery } from "../src/apollo-client/queries";
 import Cards from "../src/components/home/Cards/Cards";
-import Table from "../src/components/home/Table/Table";
 
 export default function Contact() {
   const {
@@ -42,11 +41,15 @@ export default function Contact() {
   });
 
   const { data: pairData } = useQuery(pairQ);
+
+  // calculate volume 24h
   let total = 0;
   pairData?.pair?.hourData?.forEach((dataH: any) => {
     total = total + +dataH.untrackedVolumeUSD;
   });
   console.log("TOTAL", total);
+  // FEES 24 =  total * 0.0025
+  //  const oneYearFeesAPR = (oneDayFees * 365 * 100) / pair.reserveUSD;
 
   const {
     authenticate,
@@ -116,7 +119,6 @@ export default function Contact() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Cards />
-      <Table />
     </>
   );
 }

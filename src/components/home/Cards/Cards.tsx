@@ -15,7 +15,7 @@ export default function Cards() {
     <>
       <CardsContainer>
         <Container>
-          <Title>Avalanche Assets</Title>
+          {/* <Title>Avalanche Assets</Title>
           <CardsWrapper>
             <Card>
               <CardImgWrapper />
@@ -37,7 +37,7 @@ export default function Cards() {
               <CardTitle>Portfolio total value</CardTitle>
               <PriceTag>$1000</PriceTag>
             </Card>
-          </CardsWrapper>
+          </CardsWrapper> */}
 
           {/* ------------- */}
 

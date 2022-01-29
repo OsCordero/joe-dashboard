@@ -31,6 +31,18 @@ export const pairFieldsQuery = gql`
     totalSupply
     txCount
     timestamp
+    hourData(
+      first: 24
+      where: { date_gt: 1622419200 }
+      orderBy: date
+      orderDirection: desc
+    ) {
+      date
+      untrackedVolumeUSD
+      volumeToken0
+      volumeToken1
+      volumeUSD
+    }
   }
   ${pairTokenFieldsQuery}
 `;
@@ -50,8 +62,6 @@ export const userPairsQuery = gql`
       ) {
         pair {
           ...pairFields
-          oneDay @client
-          sevenDay @client
         }
       }
     }
