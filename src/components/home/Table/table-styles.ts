@@ -4,7 +4,7 @@ export const TableTitle = styled.div`
   width: 100%;
   padding-bottom: 30px;
   display: inline-block;
-  background-color: #f2f9ff;
+  background-color: ${({ color, theme }) => color || theme.colors.bg};
 `;
 
 export const TitleRed = styled.h2`
@@ -62,7 +62,7 @@ export const VerticalTableLine = styled.div`
 
 export const TableContainer = styled.div`
   padding-top: 40px;
-  background-color: #f2f9ff;
+  background-color: ${({ color, theme }) => color || theme.colors.bg};
   padding-bottom: 74px;
 `;
 

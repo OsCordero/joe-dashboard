@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const CardsContainer = styled.div`
   padding-top: 54px;
-  background-color: #f2f9ff;
+  background-color: ${({ color, theme }) => color || theme.colors.bg};
 `;
 
 export const Title = styled.p`

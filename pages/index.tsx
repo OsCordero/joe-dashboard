@@ -1,7 +1,5 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-// import Hero from "../src/components/styled/Hero";
-// import Heading from "../src/components/styled/Heading";
 import Cards from "../src/components/home/Cards/Cards";
 import {
   useERC20Balances,
@@ -32,13 +30,11 @@ const Home: NextPage = () => {
       <Cards />
       <Table />
 
-      {/* <Heading>HOME</Heading>
-      <PriceTag>$1000</PriceTag> */}
-      {isAuthenticated ? (
+      {/* {isAuthenticated ? (
         <button onClick={handleLogout}>Logout</button>
       ) : (
         <span>You have to Log in</span>
-      )}
+      )} */}
     </>
   );
 };

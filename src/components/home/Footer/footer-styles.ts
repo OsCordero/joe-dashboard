@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const FooterWrapper = styled.div`
   width: 100%;
   border-top: 1px solid #c9c7c7;
-  background-color: #f2f9ff;
+  background-color: ${({ color, theme }) => color || theme.colors.bg};
 `;
 
 export const FooterContainer = styled.div`

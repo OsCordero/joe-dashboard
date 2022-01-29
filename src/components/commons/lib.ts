@@ -58,6 +58,7 @@ export const PrimaryButton = styled.button`
   @media (max-width: 1100px) {
     padding-left: 5px;
     padding-right: 5px;
+    font-size: 14px;
   }
 `;
 
@@ -95,6 +96,9 @@ export const AddressButton = styled.button`
     padding-right: 5px;
     max-width: 98px;
   }
+  @media (max-width: 968px) {
+    font-size: 14px;
+  }
 `;
 
 export const AvaxLogo = styled.img`
@@ -124,6 +128,10 @@ export const AvalancheButton = styled.button`
     padding-left: 5px;
     padding-right: 5px;
     max-width: 98px;
+  }
+
+  @media (max-width: 968px) {
+    font-size: 14px;
   }
 `;
 
