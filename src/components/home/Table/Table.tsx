@@ -7,11 +7,9 @@ import {
   StyledTD,
   StyledTH,
   StyledTR,
+  TabButton,
   TableContainer,
   TableTitle,
-  Title,
-  TitleAll,
-  TitleRed,
   UsdcLogo,
   VerticalLine,
   VerticalTableLine,
@@ -24,9 +22,9 @@ export default function Table() {
         <Container>
           <TableTitle>
             <span>
-              <TitleRed>Top</TitleRed> <VerticalLine /> <TitleAll>All</TitleAll>{" "}
-              <VerticalLine />
-              <Title>My Pools</Title>
+              <TabButton>Pools</TabButton> <VerticalLine />
+              <TabButton>Tokens</TabButton> <VerticalLine />
+              <TabButton>Lending</TabButton>
             </span>
           </TableTitle>
           <StyledTable>

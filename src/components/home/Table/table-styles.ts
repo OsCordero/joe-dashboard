@@ -7,15 +7,7 @@ export const TableTitle = styled.div`
   background-color: ${({ color, theme }) => color || theme.colors.bg};
 `;
 
-export const TitleRed = styled.h2`
-  font-size: 18px;
-  font-family: Poppins;
-  color: #ea4142;
-  font-weight: bold;
-  padding-right: 18px;
-  display: inline-block;
-`;
-export const TitleAll = styled.h2`
+export const TabButton = styled.button`
   font-size: 18px;
   font-family: Poppins;
   color: #313131;
@@ -23,28 +15,7 @@ export const TitleAll = styled.h2`
   display: inline-block;
   padding-right: 33px;
   padding-left: 33px;
-`;
-
-export const Title = styled.h2`
-  font-size: 18px;
-  font-family: Poppins;
-  color: #313131;
-  opacity: 0.7;
-  display: inline-block;
-  padding-left: 21px;
-  padding-right: 31px;
-
-  /* ::after {
-    content: "";
-    display: block;
-    width: 100%;
-    right: 0;
-    margin-top: -8px;
-    position: absolute;
-    height: 1px;
-    background: #c9c7c7;
-    margin-left: 700px;
-  } */
+  background-color: transparent;
 `;
 
 export const VerticalLine = styled.div`
