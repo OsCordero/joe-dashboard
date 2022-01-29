@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Hero from "../src/components/styled/Hero";
 import Heading from "../src/components/styled/Heading";
+import Pool from "../src/components/home/Pool/Pool";
 
 export default function About() {
   return (
@@ -11,9 +12,7 @@ export default function About() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Hero>
-        <Heading>About</Heading>
-      </Hero>
+      <Pool />
     </>
   );
 }

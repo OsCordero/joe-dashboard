@@ -1,16 +1,23 @@
 import styled from "styled-components";
 
 export const StyledNav = styled.nav`
-  background-color: #f2f9ff;
+  background-color: ${({ color, theme }) => color || theme.colors.bg};
   width: 100%;
   .nav-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding-top: 20px;
+
     .right-buttons {
       display: flex;
       align-items: center;
+    }
+  }
+
+  @media (max-width: 968px) {
+    .nav-container {
+      max-width: 800px;
     }
   }
 `;
