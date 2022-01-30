@@ -102,8 +102,7 @@ export const StyledTD = styled.td`
   font-family: Poppins;
   vertical-align: center;
   color: #313131;
-  padding-top: 23.5px;
-  padding-bottom: 23.5px;
+  padding: 23.5px;
   border-top: 1px solid #c9c7c7;
 `;
 
@@ -119,20 +118,19 @@ export const StyledTD = styled.td`
 //   padding-left: -50px;
 // `;
 
-export const UsdcLogo = styled.img`
+export const Token1Logo = styled.img`
   // margin-top: 4px;
   height: 27px;
   width: 27px;
   border-radius: 50%;
   position: relative;
+  right: -5px;
 `;
 
-export const AvaxLogo = styled.img`
-  // margin-top: 4px;
+export const Token2Logo = styled.img`
+  margin-right: 4px;
   height: 27px;
   width: 27px;
   border-radius: 50%;
-  margin-bottom: -7px;
   position: relative;
-  left: -7px;
 `;

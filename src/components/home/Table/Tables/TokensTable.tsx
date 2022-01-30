@@ -1,13 +1,24 @@
 import React from "react";
+import styled from "styled-components";
 import { AvaxLogo } from "../../../commons/lib";
 import {
   StyledTable,
   StyledTD,
   StyledTH,
   StyledTR,
-  UsdcLogo,
   VerticalTableLine,
 } from "../table-styles";
+
+const Token = styled.span`
+  display: flex;
+  justify-content: center;
+
+  span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+`;
 
 const TokensTable = () => {
   return (
@@ -32,11 +43,12 @@ const TokensTable = () => {
 
       <StyledTR>
         <StyledTD>
-          <span>
-            <UsdcLogo src="/usdc-logo.png" />
-            <AvaxLogo src="/avalanche-avax-logo.png" />
-          </span>
-          MM-TIME
+          <Token>
+            <span>
+              <AvaxLogo src="/avalanche-avax-logo.png" />
+              MM-TIME
+            </span>
+          </Token>
         </StyledTD>
         <StyledTD>$269,400,451</StyledTD>
         <StyledTD>$269,400,451</StyledTD>
@@ -46,11 +58,12 @@ const TokensTable = () => {
 
       <StyledTR>
         <StyledTD>
-          <span>
-            <UsdcLogo src="/usdc-logo.png" />
-            <AvaxLogo src="/avalanche-avax-logo.png" />
-          </span>
-          MM-TIME
+          <Token>
+            <span>
+              <AvaxLogo src="/avalanche-avax-logo.png" />
+              MM-TIME
+            </span>
+          </Token>
         </StyledTD>
         <StyledTD>$269,400,451</StyledTD>
         <StyledTD>$269,400,451</StyledTD>
@@ -60,11 +73,10 @@ const TokensTable = () => {
 
       <StyledTR>
         <StyledTD>
-          <span>
-            <UsdcLogo src="/usdc-logo.png" />
+          <Token>
             <AvaxLogo src="/avalanche-avax-logo.png" />
-          </span>
-          MM-TIME
+            MM-TIME
+          </Token>
         </StyledTD>
         <StyledTD>$269,400,451</StyledTD>
         <StyledTD>$269,400,451</StyledTD>

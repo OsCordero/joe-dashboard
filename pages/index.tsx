@@ -24,8 +24,6 @@ const Home: NextPage = () => {
     variables: { id: "0x00000000005ef87f8ca7014309ece7260bbcdaeb" },
   });
 
-  console.log(pairsData);
-
   return (
     <>
       <Head>

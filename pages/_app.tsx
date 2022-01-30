@@ -23,8 +23,6 @@ const theme = {
 };
 
 function MyApp({ Component, pageProps }: AppProps) {
-  console.log(process.env.NEXT_PUBLIC_APP_ID);
-
   return (
     <>
       <ApolloProvider client={client}>

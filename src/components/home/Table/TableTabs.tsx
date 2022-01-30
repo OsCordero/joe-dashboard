@@ -1,18 +1,13 @@
+import { useQuery } from "@apollo/client";
 import React from "react";
+import { userPairsQuery } from "../../../apollo-client/queries";
+import { UserPoolsResponse } from "../../../types/poolsTypes";
 import { Container } from "../../commons/lib";
-
 import {
-  AvaxLogo,
-  StyledTable,
-  StyledTD,
-  StyledTH,
-  StyledTR,
   TabButton,
   TableContainer,
   TableTitle,
-  UsdcLogo,
   VerticalLine,
-  VerticalTableLine,
 } from "./table-styles";
 import PoolTable from "./Tables/PoolTable";
 import TokensTable from "./Tables/TokensTable";
@@ -26,6 +21,13 @@ export default function TableTabs({
   handleTabChange,
   activeTab,
 }: TableTabsProps) {
+  const { data: poolsData, loading: poolsLoading } =
+    useQuery<UserPoolsResponse>(userPairsQuery, {
+      variables: { id: "0x000000000a38444e0a6e37d3b630d7e855a7cb13" },
+    });
+
+  const poolPairs = poolsData?.user.liquidityPositions;
+
   return (
     <>
       <TableContainer>
@@ -54,7 +56,9 @@ export default function TableTabs({
               </TabButton>
             </span>
           </TableTitle>
-          {activeTab === "pool" && <PoolTable />}
+          {activeTab === "pool" && poolPairs && !poolsLoading && (
+            <PoolTable pairs={poolPairs} />
+          )}
           {activeTab === "tokens" && <TokensTable />}
         </Container>
       </TableContainer>
