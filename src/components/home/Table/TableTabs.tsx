@@ -1,8 +1,9 @@
 import { useQuery } from "@apollo/client";
 import React from "react";
+import { HalfCircleSpinner } from "react-epic-spinners";
 import { userPairsQuery } from "../../../apollo-client/queries";
 import { UserPoolsResponse } from "../../../types/poolsTypes";
-import { Container } from "../../commons/lib";
+import { Container, LoaderDiv } from "../../commons/lib";
 import {
   TabButton,
   TableContainer,
@@ -56,8 +57,15 @@ export default function TableTabs({
               </TabButton>
             </span>
           </TableTitle>
-          {activeTab === "pool" && poolPairs && !poolsLoading && (
+          {/* {activeTab === "pool" && poolPairs && !poolsLoading && (
             <PoolTable pairs={poolPairs} />
+          )} */}
+          {poolsLoading ? (
+            <LoaderDiv>
+              <HalfCircleSpinner size={100} color="black" className="loader" />
+            </LoaderDiv>
+          ) : (
+            activeTab === "pool" && poolPairs && <PoolTable pairs={poolPairs} />
           )}
           {activeTab === "tokens" && <TokensTable />}
         </Container>

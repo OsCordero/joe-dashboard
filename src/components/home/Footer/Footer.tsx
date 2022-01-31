@@ -13,8 +13,8 @@ import {
   FooterExTitle,
   FooterDoubleDiv,
 } from "./footer-styles";
-import { FaFacebookF } from "react-icons/fa";
-import { AiFillInstagram } from "react-icons/ai";
+import { FaDiscord, FaTwitter } from "react-icons/fa";
+import { AiFillGithub } from "react-icons/ai";
 import { ImLinkedin } from "react-icons/im";
 
 export default function Footer() {
@@ -29,14 +29,23 @@ export default function Footer() {
               dui morbi adipiscing. Tempus.
             </FooterText>
             <MediaLogosContainer>
-              <LogoStyles>
-                <FaFacebookF size="34px" />
+              <LogoStyles
+                href="https://twitter.com/traderjoe_xyz"
+                target="_blank"
+              >
+                <FaTwitter size="34px" />
               </LogoStyles>
-              <LogoStyles>
-                <AiFillInstagram size="34px" />
+              <LogoStyles
+                href="https://discord.com/invite/GHZceZhbZU"
+                target="_blank"
+              >
+                <FaDiscord size="34px" />
               </LogoStyles>
-              <LogoStyles>
-                <ImLinkedin size="34px" />
+              <LogoStyles
+                href="https://github.com/traderjoe-xyz/"
+                target="_blank"
+              >
+                <AiFillGithub size="34px" />
               </LogoStyles>
             </MediaLogosContainer>
           </LogoDiv>
