@@ -22,17 +22,21 @@ export default function TableTabs({
   handleTabChange,
   activeTab,
 }: TableTabsProps) {
-  const { account } = useMoralis();
+  const { user, account } = useMoralis();
+
   const { data: poolsData, loading: poolsLoading } = useQuery<any>(
     userPairsQuery,
     {
       variables: {
-        id: account ? account : "0x000000000a38444e0a6e37d3b630d7e855a7cb13",
+        id:
+          user && account
+            ? account
+            : "0x000000000a38444e0a6e37d3b630d7e855a7cb13",
       },
     }
   );
 
-  const poolPairs = poolsData?.user.liquidityPositions;
+  const poolPairs = poolsData?.user?.liquidityPositions;
 
   return (
     <>
