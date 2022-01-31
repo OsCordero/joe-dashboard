@@ -1,10 +1,6 @@
 import { useQuery } from "@apollo/client";
 import React from "react";
-import {
-  userPairsQuery,
-  userTokensQuery,
-} from "../../../apollo-client/queries";
-import { UserPoolsResponse } from "../../../types/poolsTypes";
+import { userPairsQuery } from "../../../apollo-client/queries";
 import { Container } from "../../commons/lib";
 import {
   TabButton,

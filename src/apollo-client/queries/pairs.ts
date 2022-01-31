@@ -68,3 +68,20 @@ export const userPairsQuery = gql`
   }
   ${pairFieldsQuery}
 `;
+
+export const userStakingQuery = gql`
+  query userStakingQuery($id: ID!) {
+    user(id: $id) {
+      id
+      entryUSD
+      rewardDebt
+      amount
+      joeHarvested
+      joeHarvestedUSD
+      exitUSD
+      pool {
+        accJoePerShare
+      }
+    }
+  }
+`;

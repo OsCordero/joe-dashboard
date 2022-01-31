@@ -24,7 +24,7 @@ import {
 } from "../src/components/commons/lib";
 import { useQuery } from "@apollo/client";
 import { userPairsQuery } from "../src/apollo-client/queries";
-import Cards from "../src/components/home/Cards/Cards";
+import Cards from "../src/components/home/Cards/TokenCards";
 
 export default function Contact() {
   const {

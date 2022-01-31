@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import {
   PrimaryButton,
@@ -11,16 +11,20 @@ import {
 } from "../../commons/lib";
 import { ButtonWrapper, IconWrapper, NavLogo, StyledNav } from "./nav-styles";
 import { FaSistrix } from "react-icons/fa";
-import {
-  useERC20Balances,
-  useMoralis,
-  useMoralisWeb3Api,
-  useNativeBalance,
-  useTokenPrice,
-} from "react-moralis";
+import { useMoralis } from "react-moralis";
+import styled from "styled-components";
 
+const Rel = styled.div`
+  position: relative;
+  .address {
+    position: absolute;
+    bottom: -25px;
+    left: -20px;
+  }
+`;
 const Navbar = () => {
   const { authenticate, logout, isAuthenticated, account } = useMoralis();
+  const [showInput, setShowInput] = useState(false);
 
   const handleLogin = () => {
     authenticate();
@@ -65,9 +69,14 @@ const Navbar = () => {
                 <FaSistrix size={22} />
               </IconWrapper>
             </Link>
-            <Link href="" passHref>
-              <AvalancheButton>Avalanche</AvalancheButton>
-            </Link>
+            <Rel>
+              <Link href="" passHref>
+                <AvalancheButton onClick={() => setShowInput(!showInput)}>
+                  Avalanche
+                </AvalancheButton>
+              </Link>
+              {showInput && <input className="address" type="text" />}
+            </Rel>
             <Link href="" passHref>
               <ButtonWrapper>
                 {/* <PrimaryButton>Connect to a wallet</PrimaryButton> */}
