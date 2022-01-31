@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useMoralis } from "react-moralis";
 import { formatMoney } from "../../../utils/formats";
 import { Container } from "../../commons/lib";
 import {
@@ -14,10 +15,14 @@ import {
 export default function TokenCards() {
   const [tokens, setTokens] =
     useState<{ contract_address: string; quote: number; balance: string }[]>();
-
+  const { user, account } = useMoralis();
   useEffect(() => {
     fetch(
-      `https://api.covalenthq.com/v1/43114/address/0xf7435997f01c223e86f70a5484add697c03fd508/balances_v2/?quote-currency=USD&format=JSON&nft=false&no-nft-fetch=false&key=${process.env.NEXT_PUBLIC_COVALENT_API_KEY}`
+      `https://api.covalenthq.com/v1/43114/address/${
+        user && account ? account : "0xf7435997f01c223e86f70a5484add697c03fd508"
+      }/balances_v2/?quote-currency=USD&format=JSON&nft=false&no-nft-fetch=false&key=${
+        process.env.NEXT_PUBLIC_COVALENT_API_KEY
+      }`
     )
       .then((res) => res.json())
       .then((data) => setTokens(data.data.items))
