@@ -23,7 +23,7 @@ import {
   AvalancheButton,
 } from "../src/components/commons/lib";
 import { useQuery } from "@apollo/client";
-import { pairQ, userPairsQuery } from "../src/apollo-client/queries";
+import { userPairsQuery } from "../src/apollo-client/queries";
 import Cards from "../src/components/home/Cards/Cards";
 
 export default function Contact() {
@@ -39,8 +39,6 @@ export default function Contact() {
   const { data: pairsData } = useQuery(userPairsQuery, {
     variables: { id: "0x00000000005ef87f8ca7014309ece7260bbcdaeb" },
   });
-
-  const { data: pairData } = useQuery(pairQ);
 
   // calculate volume 24h
   let total = 0;
