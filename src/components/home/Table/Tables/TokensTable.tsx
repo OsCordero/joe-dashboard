@@ -1,10 +1,12 @@
 import { useQuery } from "@apollo/client";
 import React, { useEffect, useState } from "react";
+import { HalfCircleSpinner } from "react-epic-spinners";
 import { useMoralis } from "react-moralis";
 import styled from "styled-components";
 import { userTokensQuery } from "../../../../apollo-client/queries";
 import { UserTokensResponse } from "../../../../types/tokensTypes";
 import { formatMoney } from "../../../../utils/formats";
+import { LoaderDiv } from "../../../commons/lib";
 import {
   StyledTable,
   StyledTD,
@@ -27,14 +29,18 @@ const Token = styled(StyledTD)`
 `;
 
 const TokensTable = () => {
-  const { web3 } = useMoralis();
+  const { web3, user, account } = useMoralis();
   const [tokens, setTokens] =
     useState<
       { contract_address: string; quote_rate: number; balance: string }[]
     >();
   useEffect(() => {
     fetch(
-      `https://api.covalenthq.com/v1/43114/address/0x000000000a38444e0a6e37d3b630d7e855a7cb13/balances_v2/?quote-currency=USD&format=JSON&nft=false&no-nft-fetch=false&key=${process.env.NEXT_PUBLIC_COVALENT_API_KEY}`
+      `https://api.covalenthq.com/v1/43114/address/${
+        user && account ? account : "0x000000000a38444e0a6e37d3b630d7e855a7cb13"
+      }/balances_v2/?quote-currency=USD&format=JSON&nft=false&no-nft-fetch=false&key=${
+        process.env.NEXT_PUBLIC_COVALENT_API_KEY
+      }`
     )
       .then((res) => res.json())
       .then((data) => setTokens(data.data.items))
@@ -60,7 +66,9 @@ const TokensTable = () => {
     );
 
   return loading ? (
-    <div>Loading your tokens...</div>
+    <LoaderDiv>
+      <HalfCircleSpinner size={100} color="black" className="loader" />
+    </LoaderDiv>
   ) : (
     <StyledTable>
       <StyledTR>
@@ -88,7 +96,7 @@ const TokensTable = () => {
                   src={
                     token.symbol.includes("AVAX")
                       ? "/avalanche-avax-logo.png"
-                      : `https://raw.githubusercontent.com/traderjoe-xyz/joe-tokenlists/main/logos/${web3.formatter.address(
+                      : `https://raw.githubusercontent.com/traderjoe-xyz/joe-tokenlists/main/logos/${web3?.formatter.address(
                           token.id
                         )}/logo.png`
                   }
