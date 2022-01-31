@@ -1,7 +1,9 @@
-import { useQuery } from "@apollo/client";
 import React from "react";
+import { useQuery } from "@apollo/client";
+import { HalfCircleSpinner } from "react-epic-spinners";
+import { useMoralis } from "react-moralis";
 import { userPairsQuery } from "../../../apollo-client/queries";
-import { Container } from "../../commons/lib";
+import { Container, LoaderDiv } from "../../commons/lib";
 import {
   TabButton,
   TableContainer,
@@ -20,10 +22,13 @@ export default function TableTabs({
   handleTabChange,
   activeTab,
 }: TableTabsProps) {
+  const { account } = useMoralis();
   const { data: poolsData, loading: poolsLoading } = useQuery<any>(
     userPairsQuery,
     {
-      variables: { id: "0x000000000a38444e0a6e37d3b630d7e855a7cb13" },
+      variables: {
+        id: account ? account : "0x000000000a38444e0a6e37d3b630d7e855a7cb13",
+      },
     }
   );
 
@@ -57,8 +62,15 @@ export default function TableTabs({
               </TabButton>
             </span>
           </TableTitle>
-          {activeTab === "pool" && poolPairs && !poolsLoading && (
+          {/* {activeTab === "pool" && poolPairs && !poolsLoading && (
             <PoolTable pairs={poolPairs} />
+          )} */}
+          {poolsLoading ? (
+            <LoaderDiv>
+              <HalfCircleSpinner size={100} color="black" className="loader" />
+            </LoaderDiv>
+          ) : (
+            activeTab === "pool" && poolPairs && <PoolTable pairs={poolPairs} />
           )}
           {activeTab === "tokens" && <TokensTable />}
         </Container>

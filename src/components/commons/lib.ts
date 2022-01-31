@@ -143,3 +143,12 @@ export const Container = styled.div`
     max-width: 600px;
   }
 `;
+
+export const LoaderDiv = styled.div`
+  background-color: ${({ color, theme }) => color || theme.colors.bg};
+  padding-top: 100px;
+  padding-bottom: 100px;
+  .loader {
+    margin: 0 auto;
+  }
+`;

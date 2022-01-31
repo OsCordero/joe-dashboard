@@ -45,7 +45,7 @@ export const MediaLogosContainer = styled.div`
   display: inline-block;
 `;
 
-export const LogoStyles = styled.p`
+export const LogoStyles = styled.a`
   color: #ea4142;
   display: inline-block;
   margin-right: 28px;
