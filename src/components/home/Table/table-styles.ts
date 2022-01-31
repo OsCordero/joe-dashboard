@@ -132,5 +132,4 @@ export const Token2Logo = styled.img`
   height: 27px;
   width: 27px;
   border-radius: 50%;
-  position: relative;
 `;

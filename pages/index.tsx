@@ -3,7 +3,7 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import React from "react";
 import { useMoralis } from "react-moralis";
-import { pairQ, userPairsQuery } from "../src/apollo-client/queries";
+import { userPairsQuery } from "../src/apollo-client/queries";
 import Cards from "../src/components/home/Cards/Cards";
 import TableTabs from "../src/components/home/Table/TableTabs";
 
@@ -15,14 +15,11 @@ const Home: NextPage = () => {
   const handleTabChange = (tab: "pool" | "tokens" | "lending") => {
     setActiveTab(tab);
   };
-  const { authenticate, logout, isAuthenticated, account } = useMoralis();
+  const { logout } = useMoralis();
+
   const handleLogout = () => {
     logout();
   };
-
-  const { data: pairsData } = useQuery(userPairsQuery, {
-    variables: { id: "0x00000000005ef87f8ca7014309ece7260bbcdaeb" },
-  });
 
   return (
     <>

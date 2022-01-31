@@ -1,8 +1,8 @@
-export const formatMoney = (amount: number) => {
+export const formatMoney = (amount: number, decimals = 0) => {
   const formatter = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
-    maximumFractionDigits: 0,
+    maximumFractionDigits: decimals,
   });
   return formatter.format(amount);
 };

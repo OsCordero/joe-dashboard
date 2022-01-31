@@ -34,13 +34,13 @@ const Pairs = styled.span`
 `;
 
 const PoolTable = ({ pairs }: { pairs: LiquidityPosition[] }) => {
-  const { Moralis } = useMoralis();
-  const [web3, setWeb3] = useState<providers.Web3Provider>();
+  const { Moralis, web3 } = useMoralis();
+  const alg = useMoralisWeb3Api();
 
   useEffect(() => {
-    Moralis.enableWeb3().then((web3) => {
-      setWeb3(web3);
-    });
+    if (!web3) {
+      Moralis.enableWeb3();
+    }
   }, []);
 
   return (
@@ -69,7 +69,6 @@ const PoolTable = ({ pairs }: { pairs: LiquidityPosition[] }) => {
         }, 0);
         const fees24 = volume24 * 0.0025;
         const oneYearFeesAPR = (fees24 * 365 * 100) / +pair.reserveUSD;
-        console.log(pair.token0.id);
 
         return (
           <StyledTR key={pair.id}>

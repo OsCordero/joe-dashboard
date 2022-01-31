@@ -39,7 +39,7 @@ export const CardTitle = styled.p`
 export const PriceTag = styled.p`
   color: #151531;
   font-family: Roboto;
-  font-size: 30px;
+  font-size: 24px;
   font-weight: bold;
   grid-column: 2/3;
 `;

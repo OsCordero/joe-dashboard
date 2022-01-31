@@ -1,6 +1,9 @@
 import { useQuery } from "@apollo/client";
 import React from "react";
-import { userPairsQuery } from "../../../apollo-client/queries";
+import {
+  userPairsQuery,
+  userTokensQuery,
+} from "../../../apollo-client/queries";
 import { UserPoolsResponse } from "../../../types/poolsTypes";
 import { Container } from "../../commons/lib";
 import {
@@ -21,10 +24,12 @@ export default function TableTabs({
   handleTabChange,
   activeTab,
 }: TableTabsProps) {
-  const { data: poolsData, loading: poolsLoading } =
-    useQuery<UserPoolsResponse>(userPairsQuery, {
+  const { data: poolsData, loading: poolsLoading } = useQuery<any>(
+    userPairsQuery,
+    {
       variables: { id: "0x000000000a38444e0a6e37d3b630d7e855a7cb13" },
-    });
+    }
+  );
 
   const poolPairs = poolsData?.user.liquidityPositions;
 
